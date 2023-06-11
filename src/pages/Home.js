@@ -58,6 +58,7 @@ const Home = () => {
       
     })
   }
+  if (!listofpost.length) return <div>Loading...</div>;
   return (
     <>
       {listofpost.map((post) => (

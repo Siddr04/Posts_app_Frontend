@@ -16,37 +16,40 @@ import axios from "axios";
 
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [AuthState, setAuthState] = useState({username:"",id:0,status:false});
   // const [userName, setuserName] = useState("");
   // const navigate=useNavigate();
 
-  useEffect(()=>{
-    axios.get("https://posts-app-backend-sidd.vercel.app/auth",{headers:{
-      accessToken:localStorage.getItem("accessToken"),
-    },}).then((response)=>{
-
-      if(response.data.error)
-      {
-        setAuthState({...AuthState,status:false});
-      }
-      else
-      {
-        // setuserName(response.data.Username);
-        console.log(response.data);
-
-        setAuthState({username:response.data.Username,id:response.data.id,status:true});
-        // console.log(AuthState);
-
-      }
-    })
-  },[])
+  useEffect(() => {
+    axios
+      .get("https://posts-app-backend-sidd.vercel.app/auth", {
+        headers: {
+          accessToken: localStorage.getItem("accessToken"),
+        },
+      })
+      .then((response) => {
+        if (response.data.error) {
+          setAuthState({ ...AuthState, status: false });
+        } else {
+          setAuthState({ username: response.data.Username, id: response.data.id, status: true });
+        }
+        setLoading(false); // Set loading to false after receiving the response
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false); // Set loading to false if an error occurs
+      });
+  }, []);
   
   const logout=(()=>{
     localStorage.removeItem("accessToken");
     setAuthState({username:"",id:0,status:false});
 
   })
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="App">
       <AuthContext.Provider value={{ AuthState, setAuthState }}>
