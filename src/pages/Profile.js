@@ -98,7 +98,7 @@ const Profile = () => {
         {
             alert(response.data.message);
             localStorage.removeItem("accessToken");
-            setAuthState({username:"",id:0,status:true});
+            setAuthState({username:"",id:0,status:false});
             navigate("/login");
         }
       })
