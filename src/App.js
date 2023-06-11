@@ -22,6 +22,7 @@ function App() {
   // const navigate=useNavigate();
 
   useEffect(() => {
+    console.log(localStorage.getItem("accessToken"));
     axios
       .get("https://posts-app-backend-sidd.vercel.app/auth", {
         headers: {
