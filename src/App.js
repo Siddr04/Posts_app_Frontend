@@ -34,6 +34,8 @@ function App() {
           setAuthState({ username: "", id: 0, status: false });
         } else {
           console.log("here");
+          console.log(response.data);
+
           setAuthState({ username: response.data.Username, id: response.data.id, status: true });
         }
         setLoading(false);
