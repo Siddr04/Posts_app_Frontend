@@ -30,20 +30,18 @@ function App() {
       })
       .then((response) => {
         if (response.data.error) {
-          setAuthState({ ...AuthState, status: false });
-          setLoading(false); 
-
+          setAuthState({ username: "", id: 0, status: false });
         } else {
           setAuthState({ username: response.data.Username, id: response.data.id, status: true });
-          setLoading(false); 
         }
-        // Set loading to false after receiving the response
+        setLoading(false);
       })
       .catch((error) => {
         console.error(error);
-        setLoading(false); // Set loading to false if an error occurs
+        setLoading(false);
       });
   }, []);
+  
   
   const logout=(()=>{
     localStorage.removeItem("accessToken");
