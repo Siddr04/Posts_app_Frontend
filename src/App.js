@@ -40,7 +40,7 @@ function App() {
         console.error(error);
         setLoading(false);
       });
-  }, []);
+  }, [AuthState]);
   
   
   const logout=(()=>{
@@ -58,7 +58,7 @@ function App() {
           <div className="navbar">
             <Link to="/">Home</Link>
             <Link to="/createPost">New Post</Link>
-            {AuthState.status && (
+            {!(AuthState.status) && (
               <>
                 <Link to="/login">Login</Link>
                 <Link to="/signup">SignUp</Link>
@@ -66,10 +66,10 @@ function App() {
             )}
               {/* {AuthState.status===false && <div id='no-login-id'>Welcome</div>} */}
 
-            {!(AuthState.status) && (
+            {AuthState.status && (
               <>
 
-                {!(AuthState.status) && <div id='user-id'>Welcome, {AuthState.username}</div>}
+                {AuthState.status && <div id='user-id'>Welcome, {AuthState.username}</div>}
                 
                 <Link id="nav-btn" onClick={logout} to="/">Logout</Link>
                 <Link id="profile-btn" to={`/${AuthState.username}` }>Profile</Link>
