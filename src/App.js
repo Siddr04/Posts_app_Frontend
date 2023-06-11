@@ -31,10 +31,13 @@ function App() {
       .then((response) => {
         if (response.data.error) {
           setAuthState({ ...AuthState, status: false });
+          setLoading(false); 
+
         } else {
           setAuthState({ username: response.data.Username, id: response.data.id, status: true });
+          setLoading(false); 
         }
-        setLoading(false); // Set loading to false after receiving the response
+        // Set loading to false after receiving the response
       })
       .catch((error) => {
         console.error(error);
