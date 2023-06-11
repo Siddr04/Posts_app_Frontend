@@ -10,7 +10,7 @@ const Login = () => {
 
   const login = () => {
     axios
-      .post("http://localhost:3024/users/login", {
+      .post("https://posts-app-backend-sidd.vercel.app/users/login", {
         Username: username,
         Password: password,
       })

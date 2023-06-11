@@ -16,7 +16,7 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3024/${userName}`).then((response) => {
+    axios.get(`https://posts-app-backend-sidd.vercel.app/${userName}`).then((response) => {
       // console.log(response);
       if(response.data.length===0)
       {
@@ -33,7 +33,7 @@ const Profile = () => {
   const likePost = (post_id) => {
     axios
       .post(
-        "http://localhost:3024/like",
+        "https://posts-app-backend-sidd.vercel.app/like",
         { Post_ID: post_id },
         {
           headers: {
@@ -79,7 +79,7 @@ const Profile = () => {
     let newUsername=prompt("Enter new Username: ");
     axios
       .put(
-        "http://localhost:3024/users/changeUsername",
+        "https://posts-app-backend-sidd.vercel.app/users/changeUsername",
         {
           newUsername:newUsername
         },

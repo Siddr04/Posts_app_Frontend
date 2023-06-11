@@ -21,7 +21,7 @@ function App() {
   // const navigate=useNavigate();
 
   useEffect(()=>{
-    axios.get("http://localhost:3024/users/auth",{headers:{
+    axios.get("https://posts-app-backend-sidd.vercel.app/auth",{headers:{
       accessToken:localStorage.getItem("accessToken"),
     },}).then((response)=>{
 

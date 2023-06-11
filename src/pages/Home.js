@@ -9,14 +9,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3024/").then((response) => {
+    axios.get("https://posts-app-backend-sidd.vercel.app/").then((response) => {
       // console.log(response);
       setListofposts(response.data);
       // console.log(response.data);
     });
   }, []);
   const likePost=(post_id)=>{
-    axios.post("http://localhost:3024/like",{Post_ID:post_id},{headers:{
+    axios.post("https://posts-app-backend-sidd.vercel.app/like",{Post_ID:post_id},{headers:{
       accessToken:localStorage.getItem("accessToken")
     }}).then((response)=>{
       // console.log(response);

@@ -10,7 +10,7 @@ const ChagePassword = () => {
     const passChange=()=>{
         axios
       .put(
-        "http://localhost:3024/users/changePassword",
+        "https://posts-app-backend-sidd.vercel.app/users/changePassword",
         {
           oldpassWord: oldpassWord,
           newpassWord: newpassWord,

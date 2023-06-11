@@ -19,7 +19,7 @@ const CreatePost = () => {
     postText :Yup.string().required(),
   })
   const onSubmit=(data)=>{
-    axios.post("http://localhost:3024/",data,{headers:{
+    axios.post("https://posts-app-backend-sidd.vercel.app/",data,{headers:{
       accessToken:localStorage.getItem("accessToken")
     }}).then((response)=>{
         if(response.data.error)

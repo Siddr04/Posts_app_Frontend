@@ -16,10 +16,10 @@ const Post = () => {
 
   // const [username, setUsername] = useState("");
   useEffect(() => {
-    axios.post("http://localhost:3024/post", id).then((response) => {
+    axios.post("https://posts-app-backend-sidd.vercel.app/post", id).then((response) => {
       setPostValue(response.data);
     });
-    axios.post("http://localhost:3024/comments", id).then((response) => {
+    axios.post("https://posts-app-backend-sidd.vercel.app/comments", id).then((response) => {
       setcommentList(response.data);
       // console.log("Comment Added !")
     });
@@ -27,7 +27,7 @@ const Post = () => {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3024/comments/new",
+        "https://posts-app-backend-sidd.vercel.app/comments/new",
         {
           commentBody: newComment,
           Pid: id,
@@ -57,7 +57,7 @@ const Post = () => {
     let newComment = prompt("Enter New comment:");
     axios
         .put(
-          "http://localhost:3024/comments/edit",
+          "https://posts-app-backend-sidd.vercel.app/comments/edit",
           {
             commentid:commentId,
             new_comment:newComment
@@ -90,7 +90,7 @@ const Post = () => {
 
   const deleteComment = (comment_id) => {
     axios
-      .delete(`http://localhost:3024/comments/${id.id}/${comment_id}`, {
+      .delete(`https://posts-app-backend-sidd.vercel.app/${id.id}/${comment_id}`, {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
@@ -112,7 +112,7 @@ const Post = () => {
 
   const deletePost = () => {
     axios
-      .delete(`http://localhost:3024/${id.id}`, {
+      .delete(`https://posts-app-backend-sidd.vercel.app/${id.id}`, {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
@@ -133,7 +133,7 @@ const Post = () => {
       if(!newTitle){return;}
       axios
         .put(
-          `http://localhost:3024/${id.id}/title`,
+          `https://posts-app-backend-sidd.vercel.app/${id.id}/title`,
           {
             title: newTitle,
           },
@@ -160,7 +160,7 @@ const Post = () => {
       if(!newBodyText){return;}
       axios
         .put(
-          `http://localhost:3024/${id.id}/content`,
+          `https://posts-app-backend-sidd.vercel.app/${id.id}/content`,
           {
             content: newBodyText,
           },
@@ -186,7 +186,7 @@ const Post = () => {
     }
   };
   const likePost=(post_id)=>{
-    axios.post("http://localhost:3024/like",{Post_ID:post_id},{headers:{
+    axios.post("https://posts-app-backend-sidd.vercel.app/like",{Post_ID:post_id},{headers:{
       accessToken:localStorage.getItem("accessToken")
     }}).then((response)=>{
       // console.log(response);

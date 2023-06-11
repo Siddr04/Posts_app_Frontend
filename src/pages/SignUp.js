@@ -22,7 +22,7 @@ const SignUp = () => {
     // console.log(value2);
     if (value1 === value2) {
       axios
-        .post("http://localhost:3024/users/registration", data)
+        .post("https://posts-app-backend-sidd.vercel.app/users/registration", data)
         .then((response) => {
           if(response.data.error)
           {
