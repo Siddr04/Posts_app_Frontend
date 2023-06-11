@@ -17,7 +17,7 @@ import axios from "axios";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [AuthState, setAuthState] = useState({username:"",id:0,status:true});
+  const [AuthState, setAuthState] = useState({username:"",id:0,status:false});
   // const [userName, setuserName] = useState("");
   // const navigate=useNavigate();
 
@@ -30,9 +30,9 @@ function App() {
       })
       .then((response) => {
         if (response.data.error) {
-          setAuthState({ username: "", id: 0, status: true });
+          setAuthState({ username: "", id: 0, status: false });
         } else {
-          setAuthState({ username: response.data.Username, id: response.data.id, status: false });
+          setAuthState({ username: response.data.Username, id: response.data.id, status: true });
         }
         setLoading(false);
       })
