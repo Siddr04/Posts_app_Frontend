@@ -29,12 +29,13 @@ function App() {
         },
       })
       .then((response) => {
+        console.log(response.data);
+
         if (response.data.length===0 ||response.data.error ) {
           
           setAuthState({ username: "", id: 0, status: false });
         } else {
           console.log("here");
-          console.log(response.data);
 
           setAuthState({ username: response.data.Username, id: response.data.id, status: true });
         }
