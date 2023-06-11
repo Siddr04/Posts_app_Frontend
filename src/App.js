@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     console.log(localStorage.getItem("accessToken"));
     axios
-      .get("https://posts-app-backend-sidd.vercel.app/auth", {
+      .get("https://posts-app-backend-sidd.vercel.app/users/auth", {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         },
