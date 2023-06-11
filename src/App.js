@@ -42,7 +42,7 @@ function App() {
       });
   }, [AuthState]);
   
-  
+  console.log(AuthState.status);
   const logout=(()=>{
     localStorage.removeItem("accessToken");
     setAuthState({username:"",id:0,status:false});
