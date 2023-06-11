@@ -30,8 +30,10 @@ function App() {
       })
       .then((response) => {
         if (response.data.error) {
+          
           setAuthState({ username: "", id: 0, status: false });
         } else {
+          console.log("here");
           setAuthState({ username: response.data.Username, id: response.data.id, status: true });
         }
         setLoading(false);

@@ -21,6 +21,8 @@ const Login = () => {
         } else 
         {
           localStorage.setItem("accessToken", response.data.token);
+          console.log("here_login");
+
           setAuthState({username:response.data.username,id:response.data.id,status:true});
           navigate("/");
         }
