@@ -29,7 +29,7 @@ function App() {
         },
       })
       .then((response) => {
-        if (response.data.error) {
+        if (response.data.length===0 ||response.data.error ) {
           
           setAuthState({ username: "", id: 0, status: false });
         } else {
