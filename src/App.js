@@ -40,7 +40,7 @@ function App() {
         console.error(error);
         setLoading(false);
       });
-  }, [AuthState]);
+  }, []);
   
   console.log(AuthState.status);
   const logout=(()=>{
